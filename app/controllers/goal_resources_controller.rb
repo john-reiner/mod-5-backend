@@ -1,0 +1,2 @@
+class GoalResourcesController < ApplicationController
+end
