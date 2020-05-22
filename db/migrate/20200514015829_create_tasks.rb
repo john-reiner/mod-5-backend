@@ -4,6 +4,7 @@ class CreateTasks < ActiveRecord::Migration[6.0]
       t.integer :goal_id
       t.string :name
       t.text :description
+      t.text :time
 
       t.timestamps
     end
