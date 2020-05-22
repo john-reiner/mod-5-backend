@@ -5,9 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-user = User.create(username: 'mightyfineguy', password:'1234asdf')
-goal = Goal.create(user_id: 1, goal_name: 'test goal name', goal_description:'test goal description', date: "test goal date")
-task = Task.create(goal_id: 1, name: 'test task name', description: 'test goal description')
+
+user = User.create(username: 'asdf', password:'asdf')
+goal = Goal.create(user_id: 1, goal_name: 'test goal name', goal_description:'test goal description', date: "2020-06-12")
+task = Task.create(goal_id: 1, name: 'test task name', description: 'test goal description', time: '')
 goal_resource = GoalResource.create(goal_id: 1, name:'test resource name', description: "test description for resource", url: 'test url')
 
 25.times do 
@@ -22,7 +23,8 @@ end
         user_id: rand(25),
         goal_name: Faker::Game.title,
         goal_description: Faker::Lorem.paragraphs,
-        date: Faker::Date.forward(days: rand(50))
+        date: Faker::Date.forward(days: rand(50)),
+        is_complete: false
     })
 end
 
@@ -30,7 +32,8 @@ end
     Task.create({
         goal_id: rand(100),
         name: Faker::DcComics.hero,
-        description: Faker::TvShows::SouthPark.quote
+        description: Faker::Movies::Lebowski.quote,
+        time: ''
     })
 end
 

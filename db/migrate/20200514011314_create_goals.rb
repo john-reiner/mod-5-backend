@@ -5,6 +5,7 @@ class CreateGoals < ActiveRecord::Migration[6.0]
       t.string :goal_name
       t.text :goal_description
       t.string :date
+      t.boolean :is_complete
 
       t.timestamps
     end

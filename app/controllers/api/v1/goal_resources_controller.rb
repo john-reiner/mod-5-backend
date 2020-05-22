@@ -12,14 +12,20 @@ module Api
             end
 
             def create
+
                 goal_resource = GoalResource.new(goal_resource_params)
-                render json: goal_resource, except: [:create_at, :update_at]
+
+                if goal_resource.save 
+                    render json: {status: 'SUCCESS', message: 'Resource Created', data:goal_resource},status: :ok
+                else 
+                    render json: {status: 'ERROR', message: 'Resource NOT Created', data:goal_resource.errors},status: :unprocessable_entity
+                end
             end
 
             private
 
             def goal_resource_params
-                params.require(:goal_resource).permit(:goal_id, :name, :description, :url)
+                params.require(:goal_resource).permit(:goal_id, :name, :description, :url, :resource_file)
             end 
         end
     end
