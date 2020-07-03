@@ -4,14 +4,14 @@ module Api
             def index
                 users = User.all
                 render json: users.to_json(:include => {
-                    :goals => {:only => [:id, :goal_name, :goal_description, :date,], include: [:tasks, :goal_resources]},
+                    :goals => {:only => [:id, :goal_name, :goal_description, :date, :is_complete, :red, :green, :blue], include: [:tasks, :goal_resources]},
                 }, except: [:created_at, :updated_at])
             end
 
             def show
                 user = User.find_by(id: params[:id])
                 render json: user.to_json(:include => {
-                    :goals => {:only => [:id, :goal_name, :goal_description, :date, :is_complete], include: [:tasks, :goal_resources]},
+                    :goals => {:only => [:id, :goal_name, :goal_description, :date, :is_complete, :red, :green, :blue], include: [:tasks, :goal_resources]},
                 }, except: [:created_at, :updated_at])
             end
 
