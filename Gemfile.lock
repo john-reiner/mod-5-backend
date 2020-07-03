@@ -188,7 +188,7 @@ DEPENDENCIES
   byebug
   faker!
   listen (~> 3.2)
-  pg (>= 0.18, < 2.0)
+  pg
   puma (~> 4.1)
   rack-cors
   rails (~> 6.0.3)
