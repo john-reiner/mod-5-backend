@@ -6,6 +6,9 @@ class CreateGoals < ActiveRecord::Migration[6.0]
       t.text :goal_description
       t.string :date
       t.boolean :is_complete
+      t.integer :red
+      t.integer :green
+      t.integer :blue
 
       t.timestamps
     end

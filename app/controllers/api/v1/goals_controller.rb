@@ -4,7 +4,7 @@ module Api
             def index
                 goals = Goal.all
                 render json: goals.to_json(:include => {
-                    :tasks => {:only => [:name, :description, :time]},
+                    :tasks => {:only => [:name, :description]},
                     :goal_resources => {:only => [:name, :description, :url]}
                 }, except: [:created_at, :updated_at])
             end
@@ -41,7 +41,7 @@ module Api
             private
 
             def goal_params
-                params.require(:goal).permit(:user_id, :goal_name, :goal_description, :date, :is_complete)
+                params.require(:goal).permit(:user_id, :goal_name, :goal_description, :date, :is_complete, :red, :green, :blue)
             end 
         end
     end
